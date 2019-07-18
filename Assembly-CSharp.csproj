@@ -59,6 +59,7 @@
      <Compile Include="Assets\my\CharacterController\Player_Controller.cs" />
      <Compile Include="Assets\my\script\CameraBattery.cs" />
      <Compile Include="Assets\my\script\CameraUi.cs" />
+     <Compile Include="Assets\my\script\Electric.cs" />
      <Compile Include="Assets\my\script\FloorDisplay.cs" />
      <Compile Include="Assets\my\script\Inventory.cs" />
      <Compile Include="Assets\my\script\InventoryItemInt.cs" />

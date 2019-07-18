@@ -8,6 +8,7 @@ public class PaperPicker : MonoBehaviour
     [SerializeField] LayerMask liftLayer;
     [SerializeField] LayerMask liftMoveLayer;
     [SerializeField] LayerMask liftCardLayer;
+    [SerializeField] LayerMask electricHandleLayer;
     GameObject lift;
     [SerializeField] Camera_Controll cameraMain; 
     [SerializeField] Inventory inventory;
@@ -24,6 +25,8 @@ public class PaperPicker : MonoBehaviour
     [SerializeField] PlayAudio playAudio;
     [SerializeField] AudioSource accessDeniedSound;
     [SerializeField] UIscript uiScript;
+    [SerializeField] Electric electric;
+    
     private Keys key;
     public Sprite[] IMG=>img;
     void Start() {
@@ -141,6 +144,14 @@ public class PaperPicker : MonoBehaviour
         {
             InventoryItemFinder(hit);
             uiScript.HandActive(true);
+        }   
+        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,electricHandleLayer))
+        {
+            if(Input.GetKeyDown(key.EventKey))
+            {     
+                electric.LightIsTurned=true;
+                uiScript.HandActive(true);
+            }
         }   
         else uiScript.HandActive(false);
         
