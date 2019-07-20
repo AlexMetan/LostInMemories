@@ -55,8 +55,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FireExplosionVFX\Scripts\FxSplash.cs" />
+     <Compile Include="Assets\FireExplosionVFX\Scripts\LaunchEffect.cs" />
      <Compile Include="Assets\my\CharacterController\Camera_Controll.cs" />
      <Compile Include="Assets\my\CharacterController\Player_Controller.cs" />
+     <Compile Include="Assets\my\script\AllText.cs" />
      <Compile Include="Assets\my\script\CameraBattery.cs" />
      <Compile Include="Assets\my\script\CameraUi.cs" />
      <Compile Include="Assets\my\script\Electric.cs" />
@@ -85,6 +88,7 @@
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\xRLib.hlsl" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\Switch.hlsl" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\MultiScaleVOUpsample.compute" />
+     <None Include="Assets\Fonts\Acme\OFL.txt" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\PSSL.hlsl" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Vectorscope.shader" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\GaussianDownsample.compute" />
@@ -99,6 +103,7 @@
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\LightMeter.shader" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\D3D12.hlsl" />
+     <None Include="Assets\Fonts\Bree_Serif\OFL.txt" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\OpenGL.hlsl" />
      <None Include="Assets\Downloaded\Survival Tools\ReadMe\ReadMe.txt" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
@@ -124,6 +129,7 @@
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Lut2DBaker.shader" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\AutoExposure.compute" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Overlays.shader" />
+     <None Include="Assets\Fonts\Gloria_Hallelujah\OFL.txt" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\API\Metal.hlsl" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Distortion.hlsl" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Vectorscope.compute" />

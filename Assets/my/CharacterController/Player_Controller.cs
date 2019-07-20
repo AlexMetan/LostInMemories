@@ -18,10 +18,9 @@ public class Player_Controller : MonoBehaviour {
     public float doorFinderLenght;
     public bool canEnterToCar;
     public LayerMask layerMask;
-    public GameObject currentCar;
    
-    public GameObject cameraPosition;
-    public GameObject playerExitPos;
+   
+   
     //Private
     [SerializeField]
     AnimationCurve jumpCurve;
@@ -38,9 +37,21 @@ public class Player_Controller : MonoBehaviour {
     [SerializeField] GameObject currentDoor;
     [SerializeField] PaperPicker picker;
     Vector3 defV, sitV;
-
+    [SerializeField] Transform head;
+    float defHeadPosY;
+    float newHeadPosY;
+    [SerializeField] float newHeadPosIdle;
+    [SerializeField] float newHeadPosMove;
+    [SerializeField] float newHeadPosRun;
+    
+    [SerializeField] float smoothCameraIdle;
+    [SerializeField] float smoothCameraMove;
+    [SerializeField] float smoothCameraRun;
+    float smoothCamera;
+    bool isShake;
      private  void Start ()
      {
+         defHeadPosY=head.position.y;
         defV = new Vector3(cameraTransform.localPosition.x, 1, cameraTransform.localPosition.z);
         sitV = new Vector3(cameraTransform.localPosition.x, 0.5f, cameraTransform.localPosition.z);
 
@@ -63,6 +74,10 @@ public class Player_Controller : MonoBehaviour {
     { 
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
+        
+        ChechPlayerStatus();
+        ShakeCamera();
+
         if (!run && !sit)
             totalSpeed = movespeed;
         else if (run && !sit)
@@ -164,12 +179,44 @@ public class Player_Controller : MonoBehaviour {
             if(Input.GetKeyDown(KeyCode.E)){
                
                 StopCoroutine(openDoor.Door());
-                StartCoroutine(openDoor.Door());}
-               
-              }
+                StartCoroutine(openDoor.Door());
+            }
+        }
          
+    }
+    void ShakeCamera()
+    {   float posY;
+        if(isShake)
+           posY=newHeadPosY;
+        else
+            posY=defHeadPosY;
+        Vector3 newVector3= new Vector3(head.position.x,posY,head.position.z);
+        head.position=Vector3.MoveTowards(head.position,newVector3,Time.deltaTime*smoothCamera);
+        if(head.position.y==newVector3.y)
+            isShake=!isShake;
+    }
+    void ChechPlayerStatus()
+    {
+        if(run)
+        {        
+            smoothCamera=smoothCameraRun;
+            newHeadPosY=newHeadPosRun;
+        }
+        else if(moveHorizontal!=0||moveVertical!=0)
+        {
+            smoothCamera=smoothCameraMove;
+            newHeadPosY=newHeadPosMove;
         }
         
+        else
+        {
+            smoothCamera=smoothCameraIdle; 
+            newHeadPosY=newHeadPosIdle;            
+        }
+
+        
     }
+}
+    
 
 

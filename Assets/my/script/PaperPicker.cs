@@ -9,6 +9,7 @@ public class PaperPicker : MonoBehaviour
     [SerializeField] LayerMask liftMoveLayer;
     [SerializeField] LayerMask liftCardLayer;
     [SerializeField] LayerMask electricHandleLayer;
+    [SerializeField] LayerMask videoCameraLayer;
     GameObject lift;
     [SerializeField] Camera_Controll cameraMain; 
     [SerializeField] Inventory inventory;
@@ -26,7 +27,9 @@ public class PaperPicker : MonoBehaviour
     [SerializeField] AudioSource accessDeniedSound;
     [SerializeField] UIscript uiScript;
     [SerializeField] Electric electric;
-    
+    [SerializeField] AllText allText;
+    [SerializeField] float textUiTime;
+    [SerializeField] CameraUi cameraUi;
     private Keys key;
     public Sprite[] IMG=>img;
     void Start() {
@@ -77,7 +80,7 @@ public class PaperPicker : MonoBehaviour
         obj.SetActive(active);
         yield return new WaitForSeconds(time);
         obj.SetActive(!active);
-        yield return new WaitForSeconds(0f);
+        yield break;
     }
     void Lift(RaycastHit rayhit)
     {
@@ -152,9 +155,28 @@ public class PaperPicker : MonoBehaviour
                 electric.LightIsTurned=true;
                 uiScript.HandActive(true);
             }
-        }   
+        } 
+        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,videoCameraLayer))
+        {
+            GameObject videoCameraObj= hit.transform.gameObject;
+            allText.SetText(allText.CameraText);
+            StartCoroutine(SetActiveTimer(textUiTime,allText.TextObj,true));
+            if(Input.GetKeyDown(key.EventKey))
+            {                    
+               DestroyObj(videoCameraObj);
+               cameraUi.PlayerHaveCamera=true;
+               cameraUi.CameraOn=true;
+               cameraUi.CameraObj.SetActive(true);
+               cameraUi.NightVision=false;
+            }
+        }  
+
         else uiScript.HandActive(false);
         
+    }
+    void DestroyObj(GameObject objToDestroy)
+    {
+        Destroy(objToDestroy);
     }
     
 }

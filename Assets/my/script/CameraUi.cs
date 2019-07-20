@@ -12,22 +12,27 @@ public class CameraUi : MonoBehaviour
     bool nightVision;
     [SerializeField] float maxZoom;
     [SerializeField] float zoomStep;
+    bool playerHaveCamera;
     public bool CameraOn { get => cameraOn; set => cameraOn = value; }
     public bool NightVision { get => nightVision; set => nightVision = value; }
+    public bool PlayerHaveCamera { get => playerHaveCamera; set => playerHaveCamera = value; }
+    public GameObject CameraObj { get => cameraObj; set => cameraObj = value; }
 
     void Update()
-    {
-        TurnOnOffCamera();
-        ZoomCamera();
-        if(cameraOn)
-        playerCamera.fieldOfView=Mathf.Clamp(playerCamera.fieldOfView,maxZoom,mainZoom);
+    {  
+         if(playerHaveCamera){    
+            TurnOnOffCamera();
+            ZoomCamera();
+            if(cameraOn)
+                playerCamera.fieldOfView=Mathf.Clamp(playerCamera.fieldOfView,maxZoom,mainZoom);
+        }
     }
     void TurnOnOffCamera()
     {
         if(Input.GetKeyDown(keys.CameraOnOff))
         {
             CameraOn=!CameraOn;
-            cameraObj.SetActive(CameraOn);            
+            CameraObj.SetActive(CameraOn);            
         }
         if(cameraOn)
         {
@@ -39,7 +44,7 @@ public class CameraUi : MonoBehaviour
         }
         else
         {
-            cameraObj.SetActive(false);
+            CameraObj.SetActive(false);
             nightVision=false;
             NightVisionStatus(nightVision);
         }
