@@ -25,11 +25,12 @@ public class PaperPicker : MonoBehaviour
     [SerializeField] LiftCard liftCard;
     [SerializeField] PlayAudio playAudio;
     [SerializeField] AudioSource accessDeniedSound;
-    [SerializeField] UIscript uiScript;
     [SerializeField] Electric electric;
     [SerializeField] AllText allText;
     [SerializeField] float textUiTime;
     [SerializeField] CameraUi cameraUi;
+   
+    bool coroutineRunning;
     private Keys key;
     public Sprite[] IMG=>img;
     void Start() {
@@ -77,9 +78,11 @@ public class PaperPicker : MonoBehaviour
 
     IEnumerator SetActiveTimer(float time,GameObject obj,bool active)
     {
+        coroutineRunning=true;
         obj.SetActive(active);
         yield return new WaitForSeconds(time);
         obj.SetActive(!active);
+        coroutineRunning=false;
         yield break;
     }
     void Lift(RaycastHit rayhit)
@@ -131,52 +134,58 @@ public class PaperPicker : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,liftCardLayer))
         {
             LiftUnlocked();
-            uiScript.HandActive(true);
+            
         }            
         else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,liftMoveLayer))
         {
             LiftMove();
-            uiScript.HandActive(true);
+           
         }      
         else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,liftLayer))
         {
             Lift(hit);
-            uiScript.HandActive(true);
+            
         }                
         else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,inventoryLayer))
         {
             InventoryItemFinder(hit);
-            uiScript.HandActive(true);
+           
         }   
         else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,electricHandleLayer))
         {
             if(Input.GetKeyDown(key.EventKey))
             {     
                 electric.LightIsTurned=true;
-                uiScript.HandActive(true);
+               
             }
         } 
         else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,videoCameraLayer))
         {
             GameObject videoCameraObj= hit.transform.gameObject;
-            allText.SetText(allText.CameraText);
-            StartCoroutine(SetActiveTimer(textUiTime,allText.TextObj,true));
+            allText.SetTextEvent(allText.DialogEvents[0]);
+            SetActiveObject(allText.TextObjEvent,true);
+            StartCoroutine(allText.ShowDialog(allText.UiTextDialog, 0,allText.TextObjDialog,allText.DialogTime));
             if(Input.GetKeyDown(key.EventKey))
             {                    
-               DestroyObj(videoCameraObj);
-               cameraUi.PlayerHaveCamera=true;
-               cameraUi.CameraOn=true;
-               cameraUi.CameraObj.SetActive(true);
-               cameraUi.NightVision=false;
+                cameraUi.PickCamera();
+                DestroyObj(videoCameraObj);
+                
+            
             }
+            
         }  
+        else  SetActiveObject(allText.TextObjEvent,false);
 
-        else uiScript.HandActive(false);
+        
         
     }
     void DestroyObj(GameObject objToDestroy)
     {
         Destroy(objToDestroy);
+    }
+    public void SetActiveObject(GameObject obj,bool value)
+    {
+        obj.SetActive(value);
     }
     
 }

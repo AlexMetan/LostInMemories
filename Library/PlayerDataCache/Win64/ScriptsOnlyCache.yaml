@@ -1,9 +1,12 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AllText
     - CameraBattery
     - CameraUi
     - Camera_Controll
+    - DeadMan
+    - Electric
     - FloorDisplay
     - Inventory
     - InventoryItemInt
@@ -19,7 +22,6 @@ ScriptsOnlyBuild:
     - PlayerInLift
     - Player_Controller
     - SoundOnCollision
-    - UIscript
     Unity.Postprocessing.Runtime.dll:
     - UnityEngine.Rendering.PostProcessing.AmbientOcclusion
     - UnityEngine.Rendering.PostProcessing.AutoExposure
@@ -39,8 +41,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -109,65 +113,69 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9556}
     - Class: 114
-      Script: {instanceID: 9640}
+      Script: {instanceID: 9622}
     - Class: 114
-      Script: {instanceID: 9646}
+      Script: {instanceID: 9642}
     - Class: 114
       Script: {instanceID: 9648}
     - Class: 114
-      Script: {instanceID: 9652}
+      Script: {instanceID: 9650}
     - Class: 114
-      Script: {instanceID: 9660}
+      Script: {instanceID: 9654}
     - Class: 114
-      Script: {instanceID: 9696}
+      Script: {instanceID: 9662}
     - Class: 114
       Script: {instanceID: 9698}
     - Class: 114
-      Script: {instanceID: 9870}
+      Script: {instanceID: 9700}
     - Class: 114
-      Script: {instanceID: 9882}
+      Script: {instanceID: 9874}
     - Class: 114
-      Script: {instanceID: 9942}
+      Script: {instanceID: 9886}
     - Class: 114
-      Script: {instanceID: 9978}
+      Script: {instanceID: 9946}
     - Class: 114
-      Script: {instanceID: 10138}
+      Script: {instanceID: 9982}
     - Class: 114
-      Script: {instanceID: 10144}
+      Script: {instanceID: 10142}
     - Class: 114
-      Script: {instanceID: 10196}
+      Script: {instanceID: 10148}
     - Class: 114
-      Script: {instanceID: 10288}
+      Script: {instanceID: 10200}
     - Class: 114
-      Script: {instanceID: 10448}
+      Script: {instanceID: 10292}
     - Class: 114
-      Script: {instanceID: 10480}
+      Script: {instanceID: 10482}
     - Class: 114
-      Script: {instanceID: 10594}
+      Script: {instanceID: 10596}
     - Class: 114
-      Script: {instanceID: 10708}
+      Script: {instanceID: 10710}
     - Class: 114
-      Script: {instanceID: 10716}
+      Script: {instanceID: 10718}
     - Class: 114
-      Script: {instanceID: 10768}
+      Script: {instanceID: 10770}
     - Class: 114
-      Script: {instanceID: 10876}
+      Script: {instanceID: 10878}
     - Class: 114
-      Script: {instanceID: 10904}
+      Script: {instanceID: 10906}
     - Class: 114
-      Script: {instanceID: 10932}
+      Script: {instanceID: 10934}
     - Class: 114
-      Script: {instanceID: 10970}
+      Script: {instanceID: 10972}
     - Class: 114
-      Script: {instanceID: 10984}
+      Script: {instanceID: 10974}
     - Class: 114
-      Script: {instanceID: 11008}
+      Script: {instanceID: 10988}
     - Class: 114
-      Script: {instanceID: 11016}
+      Script: {instanceID: 11012}
     - Class: 114
-      Script: {instanceID: 11044}
+      Script: {instanceID: 11022}
     - Class: 114
-      Script: {instanceID: 11054}
+      Script: {instanceID: 11050}
+    - Class: 114
+      Script: {instanceID: 11060}
+    - Class: 114
+      Script: {instanceID: 64812}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -261,6 +269,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 65abdf619c1b6425ac8e875ab3cc0b82
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Electric
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -665,7 +679,7 @@ ScriptsOnlyBuild:
     className: ScreenSpaceReflections
   - hash:
       serializedVersion: 2
-      Hash: 76bab45e930c903a3a14381a40212c00
+      Hash: 691dcfbe815aecf71f39e10d988ede5e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PaperPicker
@@ -707,7 +721,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: f633a8674ddf28bbfcf40ebe64f77928
+      Hash: ad7bd1829ce4d0fb8bf059469450d76f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraUi
@@ -821,12 +835,6 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 26752792790d08c41ed03e3f9b752f8a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UIscript
-  - hash:
-      serializedVersion: 2
       Hash: 3f8d7b92a6be3c715e55d5cfa7cc8384
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -899,7 +907,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 89e5159083966905bed7c71c2b689a21
+      Hash: 49904805f988c6b5f37dfc6b524bd0a3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraBattery
@@ -929,7 +937,7 @@ ScriptsOnlyBuild:
     className: OpenDoor
   - hash:
       serializedVersion: 2
-      Hash: 4633c5f33b38cb832b2f956a464a61b5
+      Hash: ff9d798db29850c9b268241818ea0a20
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LiftCard
@@ -941,7 +949,7 @@ ScriptsOnlyBuild:
     className: LiftMove
   - hash:
       serializedVersion: 2
-      Hash: 3e7965eb625c92c04247cd6d7cd57c93
+      Hash: 69cb64113e5407bf14a2e965dfbe1e75
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player_Controller
@@ -969,6 +977,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Keys
+  - hash:
+      serializedVersion: 2
+      Hash: 2a470a0ab41dd6c8333124bd36ac2e12
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AllText
   - hash:
       serializedVersion: 2
       Hash: 446a313ecd8374dd284ae8dbb83c674f
@@ -1019,7 +1033,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
-      Hash: 507b9381eeae6d840df09a4110b1e221
+      Hash: bce2c3cb99154d65b0242c825fca8c4c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Lift
@@ -1041,8 +1055,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: cffc87fc5603a54283a92418921fe250
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeadMan
   platform: 19
   scenePathNames:
   - Assets/Downloaded/Dnk_Dev/HospitalHorrorPack/Map_Hosp1.unity
-  playerPath: "C:/Users/AlexMetan/Desktop/\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430
-    (7)/Horror.exe"
+  playerPath: C:/Users/AlexMetan/Desktop/LostInMemories TestBuildV0.01/Horror.exe

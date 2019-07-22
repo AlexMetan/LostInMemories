@@ -12,7 +12,10 @@ public class CameraUi : MonoBehaviour
     bool nightVision;
     [SerializeField] float maxZoom;
     [SerializeField] float zoomStep;
+    [SerializeField] AllText allText;
+    bool cameraTutorial;
     bool playerHaveCamera;
+    int cameraTutorialStep;
     public bool CameraOn { get => cameraOn; set => cameraOn = value; }
     public bool NightVision { get => nightVision; set => nightVision = value; }
     public bool PlayerHaveCamera { get => playerHaveCamera; set => playerHaveCamera = value; }
@@ -26,6 +29,8 @@ public class CameraUi : MonoBehaviour
             if(cameraOn)
                 playerCamera.fieldOfView=Mathf.Clamp(playerCamera.fieldOfView,maxZoom,mainZoom);
         }
+        if(cameraTutorial)
+            CameraTutorial();
     }
     void TurnOnOffCamera()
     {
@@ -61,5 +66,35 @@ public class CameraUi : MonoBehaviour
         {
             obj.SetActive(NightVision);
         }
+    }
+    public void PickCamera()
+    {
+        cameraOn=true;
+        nightVision=false;
+        playerHaveCamera=true;
+        CameraObj.SetActive(CameraOn);
+        cameraTutorial=true;
+    }
+    void CameraTutorial()
+    {
+        allText.SetActiveText(allText.TextObjEvent,true);       
+        if(cameraTutorialStep==0){
+            allText.SetTextEvent(allText.DialogEvents[1]);
+            if(Input.GetKeyDown(keys.NightVision))
+            {   
+                cameraTutorialStep=1;
+                
+            }
+        }
+        if(cameraTutorialStep==1){
+            allText.SetTextEvent(allText.DialogEvents[2]);
+            if(Input.GetKeyDown(keys.CameraOnOff))
+                {
+                    allText.SetActiveText(allText.TextObjEvent,false);
+                    cameraTutorial=false;
+                }
+            }
+        
+
     }
 }

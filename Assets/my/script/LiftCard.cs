@@ -2,6 +2,7 @@
 
 public class LiftCard : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource;
     [SerializeField] Renderer display;
     [SerializeField] Material displayMaterial;
     [SerializeField] LiftButtonMaterial liftButtonMaterial;
@@ -18,9 +19,11 @@ public class LiftCard : MonoBehaviour
     public void UnlockDoors(){
         if(inventory.SecurityCard)
         {
+            audioSource.Play();
             display.material=displayMaterial;
             unlocked=true;
             liftButtonMaterial.ChangeMaterial(0,1);
+            inventory.SecurityCard=false;
         }
     }
 }

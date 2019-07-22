@@ -18,7 +18,7 @@ public class Player_Controller : MonoBehaviour {
     public float doorFinderLenght;
     public bool canEnterToCar;
     public LayerMask layerMask;
-   
+    
    
    
     //Private
@@ -49,6 +49,13 @@ public class Player_Controller : MonoBehaviour {
     [SerializeField] float smoothCameraRun;
     float smoothCamera;
     bool isShake;
+    byte playerStatus;
+
+    [SerializeField] AudioSource audioSourse;
+    float time;
+    float timeStep;
+    [SerializeField] float timeStepWalking;
+    [SerializeField] float timeStepRunning;
      private  void Start ()
      {
          defHeadPosY=head.position.y;
@@ -60,13 +67,17 @@ public class Player_Controller : MonoBehaviour {
 
 	 private void Update ()
      {
-        if(picker.GetInventoryEnable){
-        Move();
-        Run();
-        SitDown();
-        Jump();
-        CheckHead();
-        DoorFinder();}
+        time+=Time.deltaTime;
+        if(picker.GetInventoryEnable)
+        {
+            Move();
+            Run();
+            SitDown();
+            Jump();
+            CheckHead();
+            DoorFinder();
+            MoveSound();
+        }
      }
 
 
@@ -201,20 +212,33 @@ public class Player_Controller : MonoBehaviour {
         {        
             smoothCamera=smoothCameraRun;
             newHeadPosY=newHeadPosRun;
+            playerStatus=2;
+            timeStep=timeStepRunning;
         }
         else if(moveHorizontal!=0||moveVertical!=0)
         {
             smoothCamera=smoothCameraMove;
             newHeadPosY=newHeadPosMove;
+            playerStatus=1;
+            timeStep=timeStepWalking;
         }
         
         else
         {
             smoothCamera=smoothCameraIdle; 
-            newHeadPosY=newHeadPosIdle;            
+            newHeadPosY=newHeadPosIdle; 
+            playerStatus=0;           
         }
 
         
+    }
+    void MoveSound()
+    {
+        if(time>=timeStep&&playerStatus!=0)
+        {        
+            audioSourse.Play();
+            time=0;
+        }
     }
 }
     

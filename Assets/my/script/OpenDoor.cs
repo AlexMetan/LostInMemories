@@ -9,20 +9,25 @@ public class OpenDoor : MonoBehaviour
     [SerializeField] float doorCloseDegrees=0f;
     float doorAngle;
     bool isOpened;
+    AudioSource audioSourse;
     // Start is called before the first frame update
     void Start()
     {
-        CheckDoor();           
+        CheckDoor();      
+        audioSourse=GetComponent<AudioSource>();     
     }
 
    public IEnumerator Door()
    {        
+        
         if(isOpened)doorAngle=doorCloseDegrees;
         else doorAngle=doorOpenDegrees;
         isOpened=!isOpened;
+        audioSourse.Play();
         while(transform.rotation.y!=doorAngle)
         {             
             transform.rotation=Quaternion.Lerp(transform.rotation,Quaternion.AngleAxis(doorAngle,Vector3.up),doorSpeed) ;
+            
             yield return null;
         }   
         yield break;       

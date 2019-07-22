@@ -55,13 +55,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FireExplosionVFX\Scripts\FxSplash.cs" />
-     <Compile Include="Assets\FireExplosionVFX\Scripts\LaunchEffect.cs" />
      <Compile Include="Assets\my\CharacterController\Camera_Controll.cs" />
      <Compile Include="Assets\my\CharacterController\Player_Controller.cs" />
      <Compile Include="Assets\my\script\AllText.cs" />
      <Compile Include="Assets\my\script\CameraBattery.cs" />
      <Compile Include="Assets\my\script\CameraUi.cs" />
+     <Compile Include="Assets\my\script\DeadMan.cs" />
      <Compile Include="Assets\my\script\Electric.cs" />
      <Compile Include="Assets\my\script\FloorDisplay.cs" />
      <Compile Include="Assets\my\script\Inventory.cs" />
@@ -77,7 +76,6 @@
      <Compile Include="Assets\my\script\PlayAudio.cs" />
      <Compile Include="Assets\my\script\PlayerInLift.cs" />
      <Compile Include="Assets\my\script\SoundOnCollision.cs" />
-     <Compile Include="Assets\my\script\UIscript.cs" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\FinalPass.shader" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Debug\Waveform.compute" />
      <None Include="Assets\PostProcessing-2\PostProcessing\Shaders\Builtins\Uber.shader" />
