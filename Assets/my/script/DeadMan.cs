@@ -10,7 +10,7 @@ public class DeadMan : MonoBehaviour
     [SerializeField] Animation animationRotation;
     [SerializeField] AudioSource screamSFX;
     [SerializeField] GameObject lightAnim;
-    
+    [SerializeField] Camera_Controll camera_palyer;
     bool activateAnimtion;
     bool wasActivated;
    
@@ -36,7 +36,7 @@ public class DeadMan : MonoBehaviour
         deadWithHook.position=Vector3.MoveTowards(deadWithHook.position,newVector,Time.deltaTime*smoothPosition);
         animationRotation.Play();        
         lightAnim.SetActive(true);
-        
+        camera_palyer.AnimationScared();
         if(deadWithHook.position.y==newPosition){
             wasActivated=true;
         }

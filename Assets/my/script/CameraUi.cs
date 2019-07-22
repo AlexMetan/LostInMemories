@@ -69,10 +69,7 @@ public class CameraUi : MonoBehaviour
     }
     public void PickCamera()
     {
-        cameraOn=true;
-        nightVision=false;
-        playerHaveCamera=true;
-        CameraObj.SetActive(CameraOn);
+        playerHaveCamera=true;       
         cameraTutorial=true;
     }
     void CameraTutorial()
@@ -80,7 +77,7 @@ public class CameraUi : MonoBehaviour
         allText.SetActiveText(allText.TextObjEvent,true);       
         if(cameraTutorialStep==0){
             allText.SetTextEvent(allText.DialogEvents[1]);
-            if(Input.GetKeyDown(keys.NightVision))
+            if(Input.GetKeyDown(keys.CameraOnOff))
             {   
                 cameraTutorialStep=1;
                 
@@ -88,7 +85,7 @@ public class CameraUi : MonoBehaviour
         }
         if(cameraTutorialStep==1){
             allText.SetTextEvent(allText.DialogEvents[2]);
-            if(Input.GetKeyDown(keys.CameraOnOff))
+            if(Input.GetKeyDown(keys.NightVision))
                 {
                     allText.SetActiveText(allText.TextObjEvent,false);
                     cameraTutorial=false;

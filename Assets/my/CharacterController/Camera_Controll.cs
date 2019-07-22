@@ -12,15 +12,17 @@ public class Camera_Controll : MonoBehaviour {
     public float rotationR = 0;
     public float rotationSpeed;
     [SerializeField] PaperPicker picker;
+    [SerializeField] Animation animationScared;
     float rotationY;
     int rotate;
     Quaternion defQ, rotQ;
     bool isRotate;
+    bool blockRotation;
     
 	
 	// Update is called once per frame
 	void Update () {
-        if(picker.GetInventoryEnable){
+        if(picker.GetInventoryEnable||blockRotation){
         if (axes == RotaionAxis.MouseX)
             transform.Rotate(0, Input.GetAxis("Mouse X") * sensHorizontal, 0);
         else if (axes == RotaionAxis.MouseY)
@@ -32,6 +34,9 @@ public class Camera_Controll : MonoBehaviour {
             RotateCameraY();
         }
         }
+        if(animationScared.isPlaying)
+            blockRotation=true;
+        else blockRotation =false;
            
         
     }
@@ -67,7 +72,11 @@ void RotateCameraY() {
 
     }
     public void SetCursorVisible(bool value) => Cursor.visible = value;
-
+    public void AnimationScared()
+    {
+        if(axes==RotaionAxis.MouseY)
+             animationScared.Play();
+    }
 
 
 }

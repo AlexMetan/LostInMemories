@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LiftDoor : MonoBehaviour
 {
-    
+    bool coroutineActive;
     bool doorOpen;
     float startPosX;    
     [SerializeField] float doorVector;   
@@ -13,20 +13,20 @@ public class LiftDoor : MonoBehaviour
     [SerializeField] LiftButtonMaterial liftButtonMaterial;
   
     public bool DoorOpen { get => doorOpen; set => doorOpen = value; }
-
-    private void Start() 
+   
+    void Start() 
     {
         startPosX=transform.position.x;     
        
     }
     
-    public IEnumerator OpenCloseDoorLift(bool value,float time)
+    IEnumerator OpenCloseDoorLift(bool value,float time)
     {   
+        coroutineActive=true;
         
-        doorOpen=value;
-        Debug.Log(doorOpen);
+        
         yield return new WaitForSeconds(time);
-        
+        doorOpen=value;
         float positionX;
         if(value)positionX=doorVector;else positionX=startPosX;
         Vector3 endV = new Vector3(positionX,transform.position.y,transform.position.z);
@@ -35,7 +35,15 @@ public class LiftDoor : MonoBehaviour
             transform.position= Vector3.MoveTowards(transform.position,endV,doorSpeed);
             yield return null;
         }  
-        liftButtonMaterial.ChangeMaterial(0,0); 
+        // liftButtonMaterial.ChangeMaterial(0,0); 
+        coroutineActive=false;
         yield break;       
+    }
+    public void Start_Lift_Door_Coroutine(bool value,float time)
+    {
+        if(!coroutineActive)
+        {
+            StartCoroutine(OpenCloseDoorLift(value,time));
+        }
     }
 }

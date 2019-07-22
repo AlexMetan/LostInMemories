@@ -44,8 +44,8 @@ public class AllText : MonoBehaviour
         DialogEvents= new string[dialogCount];
         dialogText[0]="Camera? I think i need this..";   
         dialogEvents[0]="[ Press "+key.EventKey.ToString()+" to take camera ]";   
-        dialogEvents[1]="[ Press "+ key.NightVision.ToString()+" to on/off night vision]"; 
-        dialogEvents[2]="[ Press "+ key.CameraOnOff.ToString()+" to on/off camera]"; 
+        dialogEvents[1]="[ Press "+ key.CameraOnOff.ToString()+" to on/off camera]"; 
+        dialogEvents[2]="[ Press "+ key.NightVision.ToString()+" to on/off night vision]";         
     }
     public void SetTextEvent(string text){  uiTextEvents.text=text; }
     public void SetActiveText(GameObject obj,bool value){   obj.SetActive(value);   }

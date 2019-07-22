@@ -189,8 +189,7 @@ public class Player_Controller : MonoBehaviour {
             openDoor=currentDoor.GetComponent<OpenDoor>();
             if(Input.GetKeyDown(KeyCode.E)){
                
-                StopCoroutine(openDoor.Door());
-                StartCoroutine(openDoor.Door());
+                openDoor.OpenDoor_Coroutine();
             }
         }
          

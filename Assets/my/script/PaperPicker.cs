@@ -29,7 +29,7 @@ public class PaperPicker : MonoBehaviour
     [SerializeField] AllText allText;
     [SerializeField] float textUiTime;
     [SerializeField] CameraUi cameraUi;
-   
+    [SerializeField] AudioSource liftButton;
     bool coroutineRunning;
     private Keys key;
     public Sprite[] IMG=>img;
@@ -91,6 +91,7 @@ public class PaperPicker : MonoBehaviour
         {
             if(liftCard.Unlocked)
             {
+                liftButton.Play();
                 if(!LiftDoor.DoorOpen)
                 {
                     lift=rayhit.transform.gameObject;                
@@ -108,7 +109,8 @@ public class PaperPicker : MonoBehaviour
     void LiftMove(){
         
         if(Input.GetKeyDown(key.EventKey))
-        {           
+        {   
+             liftButton.Play();        
             liftMove.StartLift(true,0);
             liftButtonMaterial.ChangeMaterial(1,1);
         }

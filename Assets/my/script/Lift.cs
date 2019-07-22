@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Lift : MonoBehaviour
 {   
@@ -14,13 +12,14 @@ public class Lift : MonoBehaviour
     public void OpenCloseDoor(LiftDoor[] doorFloor,bool value,float timer){
         foreach (LiftDoor door in doorFloor)
         {
-            StartCoroutine(door.OpenCloseDoorLift(value,timer));
+            door.Start_Lift_Door_Coroutine(value,timer);
         }
+        audioSource.Play();
     }
     void Update() {
-        if(!playerInLift.IsInLift&&liftDoor.DoorOpen){
-            OpenCloseDoor(liftMove.Doors,false,liftMove.LiftCloseTime);   
-            audioSource.Play();
+        if(!playerInLift.IsInLift&&liftDoor.DoorOpen)
+        {
+            OpenCloseDoor(liftMove.Doors,false,liftMove.LiftCloseTime);             
             return;       
         }
     }

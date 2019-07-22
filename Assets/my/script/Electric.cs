@@ -16,11 +16,14 @@ public class Electric : MonoBehaviour
     [SerializeField] Material greenMaterial;
     [SerializeField] Material redMaterial;
     [SerializeField] Material blackMaterial;
+    AudioSource electricitySound;
+    bool audioPlayed;
     public bool LightIsTurned { get => lightIsTurned; set => lightIsTurned = value; }
 
-   
+    void Start() {
+        electricitySound=GetComponent<AudioSource>();    
+    }
 
-    
     void Update()
     {
         if(lightIsTurned)
@@ -31,6 +34,7 @@ public class Electric : MonoBehaviour
             ChangeMaterial(rightLightElectric,greenMaterial);
             if(!animPlayed){
                 AnimationPlay();
+               
             }
             
         }
@@ -40,6 +44,11 @@ public class Electric : MonoBehaviour
         foreach (GameObject obj in lights)
         {
             obj.SetActive(value);
+        }
+        if(!electricitySound.isPlaying&&!audioPlayed)
+        {
+            electricitySound.Play();
+             audioPlayed=true;
         }
     }
     void HandleMove(float angle)
