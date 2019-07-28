@@ -4,12 +4,12 @@ public class LiftCard : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
     [SerializeField] Renderer display;
-    [SerializeField] Material displayMaterial;
-    [SerializeField] LiftButtonMaterial liftButtonMaterial;
+   
+   
     Inventory inventory;
-    bool unlocked;
+    [SerializeField] SecureStatus secureStatus;
 
-    public bool Unlocked { get => unlocked; set => unlocked = value; }
+    
 
     void Start()
     {
@@ -17,13 +17,11 @@ public class LiftCard : MonoBehaviour
     }
 
     public void UnlockDoors(){
-        if(inventory.SecurityCard)
+        if(inventory.SecurityCard&&!secureStatus.UnBlocked)
         {
-            audioSource.Play();
-            display.material=displayMaterial;
-            unlocked=true;
-            liftButtonMaterial.ChangeMaterial(0,1);
-            inventory.SecurityCard=false;
+            secureStatus.PlayAudio(secureStatus.AcceptedAudio);          
+            secureStatus.UnBlocked=true;           
+           
         }
     }
 }

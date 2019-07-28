@@ -56,7 +56,11 @@ public class Player_Controller : MonoBehaviour {
     float timeStep;
     [SerializeField] float timeStepWalking;
     [SerializeField] float timeStepRunning;
-     private  void Start ()
+    bool blockMovement;
+
+    public bool BlockMovement { get => blockMovement; set => blockMovement = value; }
+
+    private  void Start ()
      {
          defHeadPosY=head.position.y;
         defV = new Vector3(cameraTransform.localPosition.x, 1, cameraTransform.localPosition.z);
@@ -68,7 +72,7 @@ public class Player_Controller : MonoBehaviour {
 	 private void Update ()
      {
         time+=Time.deltaTime;
-        if(picker.GetInventoryEnable)
+        if(picker.GetInventoryEnable&&!blockMovement)
         {
             Move();
             Run();

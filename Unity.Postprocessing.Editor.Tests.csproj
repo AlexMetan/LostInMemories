@@ -55,8 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PostProcessing-2\Tests\Editor\PostProcessEditorTests.cs" />
-     <None Include="Assets\PostProcessing-2\Tests\Editor\Unity.Postprocessing.Editor.Tests.asmdef" />
+     <Compile Include="Assets\Downloaded\PostProcessing-2\Tests\Editor\PostProcessEditorTests.cs" />
+     <None Include="Assets\Downloaded\PostProcessing-2\Tests\Editor\Unity.Postprocessing.Editor.Tests.asmdef" />
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>

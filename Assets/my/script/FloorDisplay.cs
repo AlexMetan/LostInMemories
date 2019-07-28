@@ -19,7 +19,7 @@ public class FloorDisplay : MonoBehaviour
     }
     void ChangeNumber(GameObject[] obj,bool value)
     {
-        if(!value) Debug.Log("ddd");
+        
         foreach (GameObject numbers in obj)
         {
             numbers.SetActive(value);

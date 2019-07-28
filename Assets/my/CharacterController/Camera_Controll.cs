@@ -18,11 +18,13 @@ public class Camera_Controll : MonoBehaviour {
     Quaternion defQ, rotQ;
     bool isRotate;
     bool blockRotation;
-    
-	
-	// Update is called once per frame
-	void Update () {
-        if(picker.GetInventoryEnable||blockRotation){
+    bool blockMovement;
+
+    public bool BlockMovement { get => blockMovement; set => blockMovement = value; }
+
+    // Update is called once per frame
+    void Update () {
+        if(picker.GetInventoryEnable&&!blockRotation&&!blockMovement){
         if (axes == RotaionAxis.MouseX)
             transform.Rotate(0, Input.GetAxis("Mouse X") * sensHorizontal, 0);
         else if (axes == RotaionAxis.MouseY)

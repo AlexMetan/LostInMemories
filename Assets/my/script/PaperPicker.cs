@@ -7,7 +7,7 @@ public class PaperPicker : MonoBehaviour
     [SerializeField] LayerMask inventoryLayer;
     [SerializeField] LayerMask liftLayer;
     [SerializeField] LayerMask liftMoveLayer;
-    [SerializeField] LayerMask liftCardLayer;
+    [SerializeField] LayerMask secureInput;
     [SerializeField] LayerMask electricHandleLayer;
     [SerializeField] LayerMask videoCameraLayer;
     GameObject lift;
@@ -30,10 +30,13 @@ public class PaperPicker : MonoBehaviour
     [SerializeField] float textUiTime;
     [SerializeField] CameraUi cameraUi;
     [SerializeField] AudioSource liftButton;
+    [SerializeField] InputChangeCamera inputChangeCamera;
+    [SerializeField] SecureStatus secureStatus;
     bool coroutineRunning;
     private Keys key;
     public Sprite[] IMG=>img;
-    void Start() {
+    void Start() 
+    {
         Cursor.visible=false;
         Cursor.SetCursor(cursor_texture,Vector3.zero,cursorMode);     
         key=GetComponent<Keys>();     
@@ -89,7 +92,7 @@ public class PaperPicker : MonoBehaviour
     {
         if(Input.GetKeyDown(key.EventKey))
         {
-            if(liftCard.Unlocked)
+            if(secureStatus.UnBlocked)
             {
                 liftButton.Play();
                 if(!LiftDoor.DoorOpen)
@@ -122,7 +125,7 @@ public class PaperPicker : MonoBehaviour
         {     
             if(inventory.SecurityCard)
             {
-                liftCard.Unlocked=true; 
+                secureStatus.UnBlocked=true; 
                 liftCard.UnlockDoors();
             }
             else
@@ -133,9 +136,10 @@ public class PaperPicker : MonoBehaviour
     }
     void CheckObject(){
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,liftCardLayer))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,secureInput))
         {
             LiftUnlocked();
+            inputChangeCamera.SecureInput();
             
         }            
         else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,liftMoveLayer))
