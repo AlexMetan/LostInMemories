@@ -32,6 +32,7 @@ public class PaperPicker : MonoBehaviour
     [SerializeField] AudioSource liftButton;
     [SerializeField] InputChangeCamera inputChangeCamera;
     [SerializeField] SecureStatus secureStatus;
+    MaterialChanger materialChanger;
     bool coroutineRunning;
     private Keys key;
     public Sprite[] IMG=>img;
@@ -48,13 +49,20 @@ public class PaperPicker : MonoBehaviour
         CheckObject();
     }
     void InventoryItemFinder(RaycastHit rayhit){
-         
+         GameObject invObject=rayhit.transform.gameObject;
+           
+            materialChanger= invObject.GetComponent<MaterialChanger>();
+            
+            materialChanger.ChangeMat(1);
         if(Input.GetKeyDown(key.TakeItem)){
-            GameObject invObject=rayhit.transform.gameObject;
+            
             InventoryItemInt invInt = invObject.GetComponent<InventoryItemInt>();
+            
             inventory.CheckInv();
             if(invInt.InventoryItemIndex==2)
+            {            
                 inventory.SecurityCard=true;
+            }
             if(!inventory.InventoryFull){
                 Destroy(invObject,0.1f);                    
                 inventory.AddToList(invInt.ItemImage,invInt.Size);
@@ -142,22 +150,22 @@ public class PaperPicker : MonoBehaviour
             inputChangeCamera.SecureInput();
             
         }            
-        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,liftMoveLayer))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,liftMoveLayer))
         {
             LiftMove();
            
         }      
-        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,liftLayer))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,liftLayer))
         {
             Lift(hit);
             
         }                
-        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,inventoryLayer))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,inventoryLayer))
         {
-            InventoryItemFinder(hit);
-           
+            InventoryItemFinder(hit);           
         }   
-        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,electricHandleLayer))
+        
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,electricHandleLayer))
         {
             if(Input.GetKeyDown(key.EventKey))
             {     
@@ -165,7 +173,7 @@ public class PaperPicker : MonoBehaviour
                
             }
         } 
-        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,videoCameraLayer))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength,videoCameraLayer))
         {
             GameObject videoCameraObj= hit.transform.gameObject;
             allText.SetTextEvent(allText.DialogEvents[0]);
@@ -179,8 +187,7 @@ public class PaperPicker : MonoBehaviour
             
             }
             
-        }  
-        else  SetActiveObject(allText.TextObjEvent,false);
+        } 
 
         
         

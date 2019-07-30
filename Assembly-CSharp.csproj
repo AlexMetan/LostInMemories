@@ -73,6 +73,7 @@
      <Compile Include="Assets\my\script\LiftCard.cs" />
      <Compile Include="Assets\my\script\LiftDoor.cs" />
      <Compile Include="Assets\my\script\LiftMove.cs" />
+     <Compile Include="Assets\my\script\MaterialChanger.cs" />
      <Compile Include="Assets\my\script\OpenDoor.cs" />
      <Compile Include="Assets\my\script\PaperPicker.cs" />
      <Compile Include="Assets\my\script\PlayAudio.cs" />
@@ -85,6 +86,7 @@
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Debug\Waveform.compute" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\Uber.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\Texture3DLerp.compute" />
+     <None Include="Assets\Shader\outLine.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\CopyStd.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\Bloom.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\CopyStdFromDoubleWide.shader" />
@@ -126,6 +128,7 @@
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\Texture2DLerp.shader" />
+     <None Include="Assets\my\shaders\outLine.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\CopyStdFromTexArray.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\API\D3D9.hlsl" />
