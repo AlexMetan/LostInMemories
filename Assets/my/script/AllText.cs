@@ -17,7 +17,7 @@ public class AllText : MonoBehaviour
     [SerializeField] int dialogCount;
     string [] dialogText;
     string [] dialogEvents; 
-    
+    bool showDialogEnabled;
     
     
 
@@ -50,8 +50,9 @@ public class AllText : MonoBehaviour
     public void SetTextEvent(string text){  uiTextEvents.text=text; }
     public void SetActiveText(GameObject obj,bool value){   obj.SetActive(value);   }
 
-    public IEnumerator ShowDialog(Text txt,int index,GameObject obj,float time)
-    {
+    IEnumerator ShowDialog(Text txt,int index,GameObject obj,float time)
+    {   
+        showDialogEnabled=true;
         if(!dialog[index])
         {
             txt.text=dialogText[index];
@@ -60,11 +61,16 @@ public class AllText : MonoBehaviour
             yield return new WaitForSeconds(time);
             obj.SetActive(false);
         }
+        showDialogEnabled=false;
         yield break;
     }
     public void StopCoroutine_ShowDialog()
     {
         StopAllCoroutines();
     }
-    
+    public void Start_Show_Dialog(Text txt,int index,GameObject obj,float time)
+    {   
+        if(!showDialogEnabled)
+        StartCoroutine(ShowDialog(txt,index,obj,time));
+    }
 }

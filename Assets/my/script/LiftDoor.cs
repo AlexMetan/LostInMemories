@@ -22,9 +22,7 @@ public class LiftDoor : MonoBehaviour
     
     IEnumerator OpenCloseDoorLift(bool value,float time)
     {   
-        coroutineActive=true;
-        
-        
+        coroutineActive=true;        
         yield return new WaitForSeconds(time);
         doorOpen=value;
         float positionX;

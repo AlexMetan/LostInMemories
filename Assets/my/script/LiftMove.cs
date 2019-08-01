@@ -4,35 +4,29 @@ using UnityEngine;
 
 public class LiftMove : MonoBehaviour
 {   
-    [SerializeField] LiftDoor[] doors;
-    
-   
-    
-    
-    
+    [SerializeField] LiftDoor[] doors;  
     public int Floor { get => floor; set => floor = value; }
     public float LiftCloseTime { get => liftCloseTime; set => liftCloseTime = value; }
     public LiftDoor[] Doors { get => doors; set => doors = value; }
-
-    [SerializeField] GameObject[] floors;
-  
+    [SerializeField] GameObject[] floors;  
     [SerializeField] float liftSpeed;
     [SerializeField] float liftCloseTime;
     int floor;
     [SerializeField] Lift liftDoor;
-    [SerializeField] FloorDisplay[] floorDisplay;
-    
+    [SerializeField] FloorDisplay[] floorDisplay; 
+   
     
     IEnumerator LiftMoving(int value){
         Door(false,0);
-        yield return new WaitForSeconds(liftSpeed);     
-         
+        
+        yield return new WaitForSeconds(liftCloseTime);        
+              
         foreach (GameObject obj in floors)
         {
             obj.SetActive(false);
         }        
         floors[value].SetActive(true);
-        Door(true,0);
+        
         if(value==1){
             foreach (FloorDisplay item in floorDisplay)
             {
@@ -45,7 +39,8 @@ public class LiftMove : MonoBehaviour
                 item.ChangeFloor(item.Floor2,item.Floor1);
             }            
         }
-        
+        Door(true,0);
+        yield return new WaitForSeconds(liftSpeed); 
         yield break;    
         
     }

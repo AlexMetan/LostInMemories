@@ -53,7 +53,7 @@ public class PaperPicker : MonoBehaviour
            
             materialChanger= invObject.GetComponent<MaterialChanger>();
             
-            materialChanger.ChangeMat(1);
+            // materialChanger.ChangeMat(1);
         if(Input.GetKeyDown(key.TakeItem)){
             
             InventoryItemInt invInt = invObject.GetComponent<InventoryItemInt>();
@@ -178,7 +178,7 @@ public class PaperPicker : MonoBehaviour
             GameObject videoCameraObj= hit.transform.gameObject;
             allText.SetTextEvent(allText.DialogEvents[0]);
             SetActiveObject(allText.TextObjEvent,true);
-            StartCoroutine(allText.ShowDialog(allText.UiTextDialog, 0,allText.TextObjDialog,allText.DialogTime));
+            allText.Start_Show_Dialog(allText.UiTextDialog, 0,allText.TextObjDialog,allText.DialogTime);
             if(Input.GetKeyDown(key.EventKey))
             {                    
                 cameraUi.PickCamera();

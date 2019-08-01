@@ -34,18 +34,16 @@ public class InputChangeCamera : MonoBehaviour
     
     IEnumerator ChangeCamera(Vector3 vec)
     {   
+            Debug.Log("back");
        isChanging=true;
         isInput=!isInput;
         if(isInput)
         SetBoolMovement(isInput);        
             
         while(playerTransform.position!=vec)
-        {
-           
+        {          
             playerTransform.position=Vector3.MoveTowards(playerTransform.position,vec,smoothPosition*Time.deltaTime);           
-                
-           yield return null;
-           
+            yield return null;           
         }        
         if(!isInput)
         {
@@ -88,8 +86,7 @@ public class InputChangeCamera : MonoBehaviour
                 StartCoroutine(RotateHead());
                
             }
-            
-             StartCoroutine(ChangeCamera(vec));
+            StartCoroutine(ChangeCamera(vec));
             
         }
             
@@ -99,7 +96,7 @@ public class InputChangeCamera : MonoBehaviour
         if(Input.GetKeyDown(keys.PasswordInput)&&!secureStatus.UnBlocked)
         {
             if(!isInput) Start_ChangeCamera(newPosition);
-            else Start_ChangeCamera(defPos);
+            else Start_ChangeCamera(exitPos.position);
         }
             
     }

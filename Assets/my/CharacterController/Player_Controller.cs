@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Controller : MonoBehaviour {
@@ -182,7 +181,7 @@ public class Player_Controller : MonoBehaviour {
             headColl = true;
         else headColl = false;
     }
-
+    
     void DoorFinder()
     {
         RaycastHit hit;

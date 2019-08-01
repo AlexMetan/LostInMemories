@@ -26,11 +26,12 @@ public class OpenDoor : MonoBehaviour
         else doorAngle=doorOpenDegrees;
         isOpened=!isOpened;
         audioSourse.Play();
-        while(transform.rotation.y!=doorAngle)
+        while(transform.rotation.eulerAngles.y!=doorAngle)
         {             
             transform.rotation=Quaternion.RotateTowards(transform.rotation,Quaternion.AngleAxis(doorAngle,Vector3.up),doorSpeed) ;            
             yield return null;
         }   
+        Debug.Log("DoorEnd");
         yield break;       
     }
     void CheckDoor()

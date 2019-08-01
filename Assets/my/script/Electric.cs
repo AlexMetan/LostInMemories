@@ -53,7 +53,7 @@ public class Electric : MonoBehaviour
     }
     void HandleMove(float angle)
     {
-        handleTransform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.AngleAxis(angle,Vector3.forward),handleSpeed*Time.deltaTime) ;
+        handleTransform.localRotation=Quaternion.RotateTowards(transform.localRotation,Quaternion.AngleAxis(angle,Vector3.forward),handleSpeed*Time.deltaTime) ;
     }
     void ChangeMaterial(Renderer renderer,Material material)
     {

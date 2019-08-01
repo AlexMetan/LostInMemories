@@ -1339,6 +1339,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cardReaderM
       objectReference: {fileID: 0}
+    - target: {fileID: -4418503961177106985, guid: cedfe4ab1a6c17342b53a139883b4665,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f41c39200b1b6f746924e999415ff76f, type: 2}
     - target: {fileID: -4216859302048453862, guid: cedfe4ab1a6c17342b53a139883b4665,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1449,11 +1454,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.319
       objectReference: {fileID: 0}
-    - target: {fileID: -4418503961177106985, guid: cedfe4ab1a6c17342b53a139883b4665,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f41c39200b1b6f746924e999415ff76f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cedfe4ab1a6c17342b53a139883b4665, type: 3}
 --- !u!1001 &82947632
@@ -9756,12 +9756,13 @@ MonoBehaviour:
   inventory: 9
   torch: 102
   chargeTorch: 116
-  takeItem: 101
+  takeItem: 102
   cameraOnOff: 324
   nightVision: 325
   rotateHeadLeft: 113
   rotateHeadRight: 101
   passwordInput: 98
+  doorOpenClose: 0
 --- !u!1001 &519806240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9946,6 +9947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 535428345}
+  - component: {fileID: 535428347}
   m_Layer: 19
   m_Name: Handle
   m_TagString: Untagged
@@ -9960,7 +9962,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535428344}
-  m_LocalRotation: {x: 0, y: 0, z: -0.3420201, w: 0.9396927}
+  m_LocalRotation: {x: 0, y: 0, z: -0.21328612, w: 0.9769898}
   m_LocalPosition: {x: 0.793, y: 0.127, z: -0.739}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9968,7 +9970,35 @@ Transform:
   - {fileID: 6287729568484215245}
   m_Father: {fileID: 1821215075466812251}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -40}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -24.63}
+--- !u!114 &535428347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535428344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ed5be1096239b4492888b54a36e0b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 1715116899}
+  - {fileID: 1156777501}
+  - {fileID: 1945864065}
+  lightAnimation:
+  - {fileID: 1595787827}
+  - {fileID: 487651033}
+  - {fileID: 791678714}
+  handleTransform: {fileID: 535428345}
+  handleSpeed: 0.001
+  handleAngle: 75
+  leftLightElectric: {fileID: 5652276029789996354}
+  rightLightElectric: {fileID: 8272918340436574189}
+  greenMaterial: {fileID: 2100000, guid: b9fa79a9e6a4b6444b103f05c37c6fbe, type: 2}
+  redMaterial: {fileID: 2100000, guid: d1007d90f672f644ea8797e6bba19d43, type: 2}
+  blackMaterial: {fileID: 2100000, guid: 821b00e7d5d8ea14c88d4fca67a3cdc1, type: 2}
 --- !u!4 &540071760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 437086, guid: 65968727b1724da49a554ba4d50f4ad4,
@@ -41189,8 +41219,8 @@ MonoBehaviour:
   - {fileID: 487651033}
   - {fileID: 791678714}
   handleTransform: {fileID: 535428345}
-  handleSpeed: 5
-  handleAngle: 100
+  handleSpeed: 0.001
+  handleAngle: 75
   leftLightElectric: {fileID: 5652276029789996354}
   rightLightElectric: {fileID: 8272918340436574189}
   greenMaterial: {fileID: 2100000, guid: b9fa79a9e6a4b6444b103f05c37c6fbe, type: 2}
@@ -44109,7 +44139,7 @@ MonoBehaviour:
   playerInLift: {fileID: 973544019}
   liftDoor: {fileID: 1818162735}
   liftMove: {fileID: 1143937360}
-  audioSource: {fileID: 2111943477}
+  liftDoorAudio: {fileID: 2111943477}
 --- !u!65 &8922536151969320677
 BoxCollider:
   m_ObjectHideFlags: 0

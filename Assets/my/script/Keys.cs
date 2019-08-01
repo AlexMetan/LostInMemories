@@ -13,6 +13,7 @@ public class Keys : MonoBehaviour
     [SerializeField] KeyCode rotateHeadLeft;
     [SerializeField] KeyCode rotateHeadRight;
     [SerializeField] KeyCode passwordInput;
+    [SerializeField] KeyCode doorOpenClose;
     public KeyCode EventKey { get => eventKey; set => eventKey = value; }
     public KeyCode Inventory { get => inventory; set => inventory = value; }
     public KeyCode Torch { get => torch; set => torch = value; }
@@ -23,4 +24,5 @@ public class Keys : MonoBehaviour
     public KeyCode RotateHeadLeft { get => rotateHeadLeft; set => rotateHeadLeft = value; }
     public KeyCode RotateHeadRight { get => rotateHeadRight; set => rotateHeadRight = value; }
     public KeyCode PasswordInput { get => passwordInput; set => passwordInput = value; }
+    public KeyCode DoorOpenClose { get => doorOpenClose; set => doorOpenClose = value; }
 }
