@@ -29,9 +29,9 @@ public class OpenDoor : MonoBehaviour
         while(transform.rotation.eulerAngles.y!=doorAngle)
         {             
             transform.rotation=Quaternion.RotateTowards(transform.rotation,Quaternion.AngleAxis(doorAngle,Vector3.up),doorSpeed) ;            
-            yield return null;
+            yield return null;            
         }   
-        Debug.Log("DoorEnd");
+       
         yield break;       
     }
     void CheckDoor()

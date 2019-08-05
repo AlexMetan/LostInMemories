@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Electric : MonoBehaviour
 {
     bool lightIsTurned;
@@ -16,6 +14,7 @@ public class Electric : MonoBehaviour
     [SerializeField] Material greenMaterial;
     [SerializeField] Material redMaterial;
     [SerializeField] Material blackMaterial;
+    bool handleMove;
     AudioSource electricitySound;
     bool audioPlayed;
     public bool LightIsTurned { get => lightIsTurned; set => lightIsTurned = value; }
@@ -29,7 +28,7 @@ public class Electric : MonoBehaviour
         if(lightIsTurned)
         {
             TurnElectric(true);
-            HandleMove(handleAngle);
+            
             ChangeMaterial(leftLightElectric,blackMaterial);
             ChangeMaterial(rightLightElectric,greenMaterial);
             if(!animPlayed){
@@ -51,9 +50,30 @@ public class Electric : MonoBehaviour
              audioPlayed=true;
         }
     }
-    void HandleMove(float angle)
+    IEnumerator HandleMove()
+    {   
+        handleMove=true;
+        lightIsTurned=true;
+        while(handleTransform.transform.localRotation.eulerAngles.z!=handleAngle)
+        {
+            
+            handleTransform.localRotation=Quaternion.RotateTowards(handleTransform.localRotation,Quaternion.AngleAxis(handleAngle,Vector3.forward),handleSpeed) ;
+            Debug.Log(handleTransform.localEulerAngles);
+            // if(handleTransform.localEulerAngles){
+            //      Debug.Log("hello");
+            // }
+            
+            yield return null;
+            
+        }
+        yield break;
+        
+    }
+    public void Start_HandleMove()
     {
-        handleTransform.localRotation=Quaternion.RotateTowards(transform.localRotation,Quaternion.AngleAxis(angle,Vector3.forward),handleSpeed*Time.deltaTime) ;
+        if(!handleMove)
+            StartCoroutine(HandleMove());
+
     }
     void ChangeMaterial(Renderer renderer,Material material)
     {

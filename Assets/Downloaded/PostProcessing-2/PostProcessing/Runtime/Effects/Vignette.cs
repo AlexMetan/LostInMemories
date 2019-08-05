@@ -52,19 +52,19 @@ namespace UnityEngine.Rendering.PostProcessing
         /// <summary>
         /// The amount of vignetting on screen.
         /// </summary>
-        [Range(0f, 1f), Tooltip("Amount of vignetting on screen.")]
+        [Range(0f, 5f), Tooltip("Amount of vignetting on screen.")]
         public FloatParameter intensity = new FloatParameter { value = 0f };
 
         /// <summary>
         /// The smoothness of the vignette borders.
         /// </summary>
-        [Range(0.01f, 1f), Tooltip("Smoothness of the vignette borders.")]
+        [Range(0.01f, 5f), Tooltip("Smoothness of the vignette borders.")]
         public FloatParameter smoothness = new FloatParameter { value = 0.2f };
 
         /// <summary>
         /// Lower values will make a square-ish vignette.
         /// </summary>
-        [Range(0f, 1f), Tooltip("Lower values will make a square-ish vignette.")]
+        [Range(0f, 5f), Tooltip("Lower values will make a square-ish vignette.")]
         public FloatParameter roundness = new FloatParameter { value = 1f };
 
         /// <summary>

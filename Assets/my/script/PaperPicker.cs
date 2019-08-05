@@ -169,7 +169,7 @@ public class PaperPicker : MonoBehaviour
         {
             if(Input.GetKeyDown(key.EventKey))
             {     
-                electric.LightIsTurned=true;
+                electric.Start_HandleMove();
                
             }
         } 

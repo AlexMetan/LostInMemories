@@ -13,6 +13,12 @@ public class CameraUi : MonoBehaviour
     [SerializeField] float maxZoom;
     [SerializeField] float zoomStep;
     [SerializeField] AllText allText;
+    [SerializeField] GrayScale grayScale;
+    [SerializeField] NightVisionEffect nvGrain;
+    [SerializeField] RectTransform zoomImagePos;    
+    [SerializeField] float zoomValueStep;
+    float zoomPos;
+    float cameraZoomValue;
     bool cameraTutorial;
     bool playerHaveCamera;
     int cameraTutorialStep;
@@ -21,13 +27,14 @@ public class CameraUi : MonoBehaviour
     public bool PlayerHaveCamera { get => playerHaveCamera; set => playerHaveCamera = value; }
     public GameObject CameraObj { get => cameraObj; set => cameraObj = value; }
 
+
     void Update()
     {  
          if(playerHaveCamera){    
             TurnOnOffCamera();
             ZoomCamera();
             if(cameraOn)
-                playerCamera.fieldOfView=Mathf.Clamp(playerCamera.fieldOfView,maxZoom,mainZoom);
+                playerCamera.fieldOfView=Mathf.Clamp(playerCamera.fieldOfView,maxZoom,mainZoom);                
         }
         if(cameraTutorial)
             CameraTutorial();
@@ -56,8 +63,13 @@ public class CameraUi : MonoBehaviour
     }
     void ZoomCamera()
     {      
+        
         if(cameraOn) playerCamera.fieldOfView-= Input.mouseScrollDelta.y * zoomStep;
         else playerCamera.fieldOfView=mainZoom;   
+        cameraZoomValue=playerCamera.fieldOfView;
+        cameraZoomValue=Mathf.Clamp(cameraZoomValue,maxZoom,mainZoom);
+        zoomPos=cameraZoomValue*zoomValueStep;
+        zoomImagePos.localPosition=new Vector3(zoomPos,zoomImagePos.localPosition.y,zoomImagePos.localPosition.z);
     }
     void NightVisionStatus(bool value)
     {
@@ -66,6 +78,8 @@ public class CameraUi : MonoBehaviour
         {
             obj.SetActive(NightVision);
         }
+        grayScale.enabled=value;
+        nvGrain.SetEffect(value);
     }
     public void PickCamera()
     {

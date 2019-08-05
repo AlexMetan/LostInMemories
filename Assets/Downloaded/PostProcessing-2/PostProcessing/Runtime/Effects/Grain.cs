@@ -18,13 +18,13 @@ namespace UnityEngine.Rendering.PostProcessing
         /// <summary>
         /// The strength (or visibility) of the Grain effect on screen. Higher values mean more visible grain.
         /// </summary>
-        [Range(0f, 1f), Tooltip("Grain strength. Higher values mean more visible grain.")]
+        [Range(0f, 3f), Tooltip("Grain strength. Higher values mean more visible grain.")]
         public FloatParameter intensity = new FloatParameter { value = 0f };
 
         /// <summary>
         /// The size of grain particle on screen.
         /// </summary>
-        [Range(0.3f, 3f), Tooltip("Grain particle size.")]
+        [Range(0.3f, 9f), Tooltip("Grain particle size.")]
         public FloatParameter size = new FloatParameter { value = 1f };
 
         /// <summary>

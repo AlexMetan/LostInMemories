@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Downloaded/Dnk_Dev/HospitalHorrorPack/Map_Hosp1.unity
+    path: Assets/Scenes/menu.unity
+    guid: 61123be52b2db884581423e4f9a40ac2
+  - enabled: 1
+    path: Assets/Scenes/loading.unity
+    guid: b1dc19689cfba474eb6eb5af54e9d91d
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
     guid: b6ca1756db6b14945b4116ce8880ae82
   m_configObjects: {}
