@@ -11,6 +11,7 @@ public class Camera_Controll : MonoBehaviour {
     public float maxVert = 45;
     public float rotationR = 0;
     public float rotationSpeed;
+    [SerializeField] float rotationBackAngle; 
     [SerializeField] PaperPicker picker;
     [SerializeField] Animation animationScared;
     float rotationY;
@@ -50,7 +51,7 @@ public class Camera_Controll : MonoBehaviour {
 
 void RotateCameraY() { 
             defQ = Quaternion.Euler(transform.localRotation.x, 0, transform.localPosition.z);
-            rotQ = Quaternion.Euler(transform.localRotation.x, 145, transform.localPosition.z);
+            rotQ = Quaternion.Euler(transform.localRotation.x, rotationBackAngle, transform.localPosition.z);
 
         if (Input.GetKeyDown(KeyCode.X))
             isRotate = true;
