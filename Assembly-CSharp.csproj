@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{91A4BA8F-87F8-452E-5C3B-1D03DCBE635A}</ProjectGuid>
+    <ProjectGuid>{EE5F2870-822D-58AA-248D-D89DF8DE8E26}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,36 +55,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\my\CharacterController\Camera_Controll.cs" />
-     <Compile Include="Assets\my\CharacterController\Player_Controller.cs" />
-     <Compile Include="Assets\my\CharacterController\RotateHead.cs" />
+     <Compile Include="Assets\Downloaded\hands\scripts\showcasecam.cs" />
+     <Compile Include="Assets\Downloaded\hands\scripts\VisualizeJoint.cs" />
      <Compile Include="Assets\my\MenuUi\UiMenu.cs" />
-     <Compile Include="Assets\my\script\AllText.cs" />
-     <Compile Include="Assets\my\script\CameraBattery.cs" />
-     <Compile Include="Assets\my\script\CameraUi.cs" />
-     <Compile Include="Assets\my\script\DeadMan.cs" />
+     <Compile Include="Assets\my\script\Camera\CameraBattery.cs" />
+     <Compile Include="Assets\my\script\Camera\CameraUi.cs" />
+     <Compile Include="Assets\my\script\Camera\GameOverEffect.cs" />
+     <Compile Include="Assets\my\script\Camera\NightVisionEffect.cs" />
      <Compile Include="Assets\my\script\Electric.cs" />
-     <Compile Include="Assets\my\script\FloorDisplay.cs" />
-     <Compile Include="Assets\my\script\InputChangeCamera.cs" />
-     <Compile Include="Assets\my\script\Inventory.cs" />
-     <Compile Include="Assets\my\script\InventoryItemInt.cs" />
+     <Compile Include="Assets\my\script\Inventory\Inventory.cs" />
+     <Compile Include="Assets\my\script\Inventory\InventoryItemInt.cs" />
      <Compile Include="Assets\my\script\Keys.cs" />
-     <Compile Include="Assets\my\script\Lift.cs" />
-     <Compile Include="Assets\my\script\LiftButtonMaterial.cs" />
-     <Compile Include="Assets\my\script\LiftCard.cs" />
-     <Compile Include="Assets\my\script\LiftDoor.cs" />
-     <Compile Include="Assets\my\script\LiftMove.cs" />
+     <Compile Include="Assets\my\script\Lift\FloorDisplay.cs" />
+     <Compile Include="Assets\my\script\Lift\InputChangeCamera.cs" />
+     <Compile Include="Assets\my\script\Lift\Lift.cs" />
+     <Compile Include="Assets\my\script\Lift\LiftButtonMaterial.cs" />
+     <Compile Include="Assets\my\script\Lift\LiftCard.cs" />
+     <Compile Include="Assets\my\script\Lift\LiftDoor.cs" />
+     <Compile Include="Assets\my\script\Lift\LiftMove.cs" />
      <Compile Include="Assets\my\script\MaterialChanger.cs" />
-     <Compile Include="Assets\my\script\NightVisionEffect.cs" />
      <Compile Include="Assets\my\script\OpenDoor.cs" />
-     <Compile Include="Assets\my\script\PaperPicker.cs" />
      <Compile Include="Assets\my\script\PlayAudio.cs" />
-     <Compile Include="Assets\my\script\PlayerInLift.cs" />
+     <Compile Include="Assets\my\script\Player\AllText.cs" />
+     <Compile Include="Assets\my\script\Player\Camera_Controll.cs" />
+     <Compile Include="Assets\my\script\Player\CameraShaking.cs" />
+     <Compile Include="Assets\my\script\Player\Healing.cs" />
+     <Compile Include="Assets\my\script\Player\HideInLocker.cs" />
+     <Compile Include="Assets\my\script\Player\PaperPicker.cs" />
+     <Compile Include="Assets\my\script\Player\Player_Controller.cs" />
+     <Compile Include="Assets\my\script\Player\Player_Static.cs" />
+     <Compile Include="Assets\my\script\Player\PlayerAnimation.cs" />
+     <Compile Include="Assets\my\script\Player\PlayerHealth.cs" />
+     <Compile Include="Assets\my\script\Player\PlayerText.cs" />
+     <Compile Include="Assets\my\script\Player\RotateHead.cs" />
+     <Compile Include="Assets\my\script\Scary\DeadMan.cs" />
+     <Compile Include="Assets\my\script\Scary\SoundOnCollision.cs" />
      <Compile Include="Assets\my\script\SceneLoading.cs" />
-     <Compile Include="Assets\my\script\SecureButtonClicke.cs" />
-     <Compile Include="Assets\my\script\SecureInputButtons.cs" />
-     <Compile Include="Assets\my\script\SecureStatus.cs" />
-     <Compile Include="Assets\my\script\SoundOnCollision.cs" />
+     <Compile Include="Assets\my\script\Security\SecureButtonClicke.cs" />
+     <Compile Include="Assets\my\script\Security\SecureInputButtons.cs" />
+     <Compile Include="Assets\my\script\Security\SecureStatus.cs" />
+     <Compile Include="Assets\my\script\Zombie\ZombieAttack.cs" />
+     <Compile Include="Assets\my\script\Zombie\ZombieDetect.cs" />
+     <Compile Include="Assets\my\script\Zombie\ZombieMoving.cs" />
+     <Compile Include="Assets\my\script\Zombie\ZombieRay.cs" />
      <Compile Include="Assets\Shader\GrayScale.cs" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\FinalPass.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Debug\Waveform.compute" />
@@ -115,6 +128,7 @@
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\API\D3D12.hlsl" />
      <None Include="Assets\Fonts\Bree_Serif\OFL.txt" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\API\OpenGL.hlsl" />
+     <None Include="Assets\Downloaded\hands\shaders\handyskin.shader" />
      <None Include="Assets\Downloaded\Survival Tools\ReadMe\ReadMe.txt" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
@@ -157,25 +171,25 @@
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Debug\Histogram.shader" />
      <None Include="Assets\Downloaded\PostProcessing-2\PostProcessing\Shaders\Builtins\ExposureHistogram.compute" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/Horror-master/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/Horror-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>D:/Horror-master/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/Horror-master/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>D:/Horror-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/Horror-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>D:/Horror-master/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -361,13 +375,13 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.7f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>D:/Horror-master/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>D:/Horror-master/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>D:/Horror-master/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>D:/LostInMemories/LostInMemories/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.7f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -716,12 +730,20 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{2FED2630-87FF-93BA-A501-BC57D6F8CCC6}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
-      <Project>{5999841A-18B4-0931-F07F-321DD1AEED85}</Project>
+      <Project>{6236E59E-2774-8508-1876-4F545F3DE016}</Project>
       <Name>Unity.Postprocessing.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{F5CD767F-3C4B-2F5F-2B7D-1CB90FA5642D}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{57D231B1-952C-4E4B-D553-E5C6F4DF3BFD}</Project>
+      <Project>{231E3CC7-C33C-C73D-CA70-7D48F8BCC479}</Project>
       <Name>Unity.Postprocessing.Runtime</Name>
     </ProjectReference>
   </ItemGroup>

@@ -17,4 +17,4 @@ MonoBehaviour:
   - __PanelContainer__rootVisualContainer__unity-uie-debugger-splitter__unity-tree-view__list-view__UnityEngine.UIElements.ListView
   m_Values:
   - '{"leftPaneWidth":400.0}'
-  - '{"m_ScrollOffset":0.0,"m_SelectedIds":[1]}'
+  - '{"m_ScrollOffset":0.0,"m_SelectedIds":[3]}'

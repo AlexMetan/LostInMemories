@@ -3,9 +3,9 @@ using UnityEngine;
 public class Electric : MonoBehaviour
 {
     bool lightIsTurned;
-    [SerializeField] GameObject[] lights;
-    [SerializeField] Animation[] lightAnimation;
-    bool animPlayed;
+    [SerializeField] GameObject[] objects;
+    [SerializeField] Material lampMaterial;
+  
     [SerializeField] Transform handleTransform;
     [SerializeField] float handleSpeed;
     [SerializeField] float handleAngle;
@@ -21,6 +21,7 @@ public class Electric : MonoBehaviour
 
     void Start() {
         electricitySound=GetComponent<AudioSource>();    
+        ChangeLampEmmision(Color.black);
     }
 
     void Update()
@@ -31,16 +32,14 @@ public class Electric : MonoBehaviour
             
             ChangeMaterial(leftLightElectric,blackMaterial);
             ChangeMaterial(rightLightElectric,greenMaterial);
-            if(!animPlayed){
-                AnimationPlay();
-               
-            }
+            ChangeLampEmmision(Color.white);
+            
             
         }
     }
     void TurnElectric(bool value)
     {
-        foreach (GameObject obj in lights)
+        foreach (GameObject obj in objects)
         {
             obj.SetActive(value);
         }
@@ -52,19 +51,14 @@ public class Electric : MonoBehaviour
     }
     IEnumerator HandleMove()
     {   
+        Player_Static.Electric=true;
         handleMove=true;
         lightIsTurned=true;
-        while(handleTransform.transform.localRotation.eulerAngles.z!=handleAngle)
-        {
-            
-            handleTransform.localRotation=Quaternion.RotateTowards(handleTransform.localRotation,Quaternion.AngleAxis(handleAngle,Vector3.forward),handleSpeed) ;
-            Debug.Log(handleTransform.localEulerAngles);
-            // if(handleTransform.localEulerAngles){
-            //      Debug.Log("hello");
-            // }
-            
-            yield return null;
-            
+        while((int)handleTransform.localRotation.eulerAngles.z!=handleAngle)
+        {            
+            handleTransform.localRotation=Quaternion.RotateTowards(handleTransform.localRotation,Quaternion.AngleAxis(handleAngle,Vector3.forward),handleSpeed); 
+            yield return null; 
+        
         }
         yield break;
         
@@ -79,12 +73,8 @@ public class Electric : MonoBehaviour
     {
         renderer.material=material;
     }
-    void AnimationPlay()
+    void ChangeLampEmmision(Color color)
     {
-        foreach (Animation anim in lightAnimation)
-        {
-            anim.Play();
-        }
-        animPlayed=true;
+       lampMaterial.SetColor("_EmissionColor", color);
     }
 }

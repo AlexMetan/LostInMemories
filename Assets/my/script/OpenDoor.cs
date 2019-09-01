@@ -10,36 +10,39 @@ public class OpenDoor : MonoBehaviour
     float doorAngle;
     bool isOpened;
     AudioSource audioSourse;
-    
+    Transform thisTransform;
+    public bool IsOpened { get => isOpened; set => isOpened = value; }
+
     // Start is called before the first frame update
-  
+
     void Start()
-    {
-        CheckDoor();      
+    {    
         audioSourse=GetComponent<AudioSource>();     
+        thisTransform=transform;
     }
 
     IEnumerator Door()
-   {       
+    {       
         
-        if(isOpened)doorAngle=doorCloseDegrees;
-        else doorAngle=doorOpenDegrees;
+        if(isOpened)
+            doorAngle=doorCloseDegrees;
+        else 
+            doorAngle=doorOpenDegrees;
         isOpened=!isOpened;
         audioSourse.Play();
-        while(transform.rotation.eulerAngles.y!=doorAngle)
+        float angleLocal;
+        if(doorAngle<0)
+            angleLocal=360+doorAngle;       
+        else 
+            angleLocal=doorAngle;        
+        while(thisTransform.localRotation.eulerAngles.y!=angleLocal)
         {             
-            transform.rotation=Quaternion.RotateTowards(transform.rotation,Quaternion.AngleAxis(doorAngle,Vector3.up),doorSpeed) ;            
+            thisTransform.localRotation=Quaternion.RotateTowards(thisTransform.localRotation,Quaternion.AngleAxis(doorAngle,Vector3.up),doorSpeed) ;
             yield return null;            
         }   
-       
         yield break;       
     }
-    void CheckDoor()
-    { 
-        if(transform.rotation.eulerAngles.y<=doorOpenDegrees/2f)   isOpened=false;
-        else isOpened=true;
-    }
-    
+       
     public void OpenDoor_Coroutine()
     {
         StopCoroutine(Door());

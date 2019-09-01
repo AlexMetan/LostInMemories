@@ -7,6 +7,8 @@ TagManager:
   - Inventory
   - Character
   - Card
+  - Dead
+  - inLocker
   layers:
   - Default
   - TransparentFX
@@ -29,9 +31,9 @@ TagManager:
   - PostProccesing
   - Electric
   - Camera
-  - 
-  - 
-  - 
+  - Player
+  - Locker
+  - Zombie
   - 
   - 
   - 
