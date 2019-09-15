@@ -44,18 +44,21 @@ public class Inventory : MonoBehaviour
     }
     public void InventoryClick(int index)
     {
-        if(listInv[index].transform.localScale.y!=0.6f){
+        Debug.Log("fdfdfd");
+        // if(listInv[index].transform.localScale.y!=0.6f){
             if(invFull[index]) 
             {
                 isInvClicked=true;
                 this.index=index;
+                
             }
-        }    
+        // }    
     }
     void Update()
     {
         if(isInvClicked)
         {
+            
             ceilObjects[index].transform.position= Input.mousePosition;
             float posX= ceilObjects[index].transform.localPosition.x;
             float posY= ceilObjects[index].transform.localPosition.y;

@@ -14,6 +14,22 @@ CapsuleCollider:
   m_Height: 1.4143195
   m_Direction: 1
   m_Center: {x: 0, y: 0.20715953, z: 0}
+--- !u!114 &70501735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059130896389947686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978dd253660756a41adc5a0e98230126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryIndex: 3
+  itemImage: {fileID: 21300000, guid: f08580dddcfaf6b47a4e2b722f9088c4, type: 3}
+  size: {x: 0.5, y: 1, z: 0}
+  itemName: medicament
 --- !u!1001 &1357552920668772399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24,22 +40,37 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: e77b7dc5243821b4db9c6495b4ac8aff,
         type: 3}
       propertyPath: m_Name
-      value: health Variant
+      value: health Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e77b7dc5243821b4db9c6495b4ac8aff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425609515867240179, guid: e77b7dc5243821b4db9c6495b4ac8aff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -5259225927154676129, guid: e77b7dc5243821b4db9c6495b4ac8aff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e77b7dc5243821b4db9c6495b4ac8aff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.0067
+      value: -15.916
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e77b7dc5243821b4db9c6495b4ac8aff,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.725
+      value: 1.015
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e77b7dc5243821b4db9c6495b4ac8aff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.2992251
+      value: 2.8110006
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e77b7dc5243821b4db9c6495b4ac8aff,
         type: 3}
@@ -116,11 +147,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.28342023
       objectReference: {fileID: 0}
-    - target: {fileID: -6054058774237248251, guid: e77b7dc5243821b4db9c6495b4ac8aff,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a630b1dea55792143a12103910b9583d, type: 2}
     - target: {fileID: -2700194178795864487, guid: e77b7dc5243821b4db9c6495b4ac8aff,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -141,6 +167,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e8cd98625557c764e80260e0e0260517, type: 2}
+    - target: {fileID: -6054058774237248251, guid: e77b7dc5243821b4db9c6495b4ac8aff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a630b1dea55792143a12103910b9583d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e77b7dc5243821b4db9c6495b4ac8aff, type: 3}
 --- !u!1 &7059130896389947686 stripped
