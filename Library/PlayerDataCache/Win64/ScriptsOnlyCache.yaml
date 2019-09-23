@@ -43,6 +43,8 @@ ScriptsOnlyBuild:
     - ZombieRay
     NavMeshComponents.dll:
     - UnityEngine.AI.NavMeshSurface
+    NavMeshComponentsEditor.dll:
+    - UnityEditor.AI.NavMeshAssetManager
     Unity.Postprocessing.Runtime.dll:
     - UnityEngine.Rendering.PostProcessing.AmbientOcclusion
     - UnityEngine.Rendering.PostProcessing.AutoExposure
@@ -233,7 +235,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11174}
     - Class: 114
-      Script: {instanceID: 19782}
+      Script: {instanceID: 21094}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -248,8 +250,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 195
       Script: {instanceID: 0}
-    - Class: 208
-      Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
@@ -261,6 +261,8 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 238
+      Script: {instanceID: 0}
+    - Class: 258
       Script: {instanceID: 0}
     - Class: 73398921
       Script: {instanceID: 0}
@@ -485,7 +487,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 1eea5b1328a590979ea037dafe7f91b0
+      Hash: 0e73f0a54ad6d82cf40d2ccc94126b88
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Electric
@@ -1407,4 +1409,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/loading.unity
   - Assets/Scenes/Main.unity
   playerPath: "C:/Users/AlexMetan/Desktop/\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430
-    (10)/Horror.exe"
+    (3)/Horror.exe"
